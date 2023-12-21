@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import "./AddCenter.css"
 
-const AddCenter = () => {
+const AddCenter = (props) => {
     const [value, setValue] = useState({
         nameTT: "",
         maDV: "",
@@ -14,16 +14,30 @@ const AddCenter = () => {
 
     const [formVisible, setFormVisible] = useState(false)
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        console.log("value", value);
+    const onChange = (event) => {
+        const newValue = event.target.value
+        const field = event.target.name
+        setValue((prev) => {
+            return {
+                ...prev,
+                [field]: newValue,
+            }
+        })
     }
 
-    const handleValueChange = (event) => {
-        setValue({
-            ...value,
-            [event.target.name]: event.target.value})
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        props.onSubmit(value)
+
     }
+
+    // const handleValueChange = (event) => {
+    //     setValue({
+    //         ...value,
+    //         [event.target.name]: event.target.value
+    //     })
+            
+    // }
 
     if(!formVisible) {
         return (
@@ -45,7 +59,7 @@ const AddCenter = () => {
                         <Form.Control
                         name="nameTT"
                         value={value.nameTT}
-                        onChange={handleValueChange}
+                        onChange={onChange}
                         className="input_form"
                         as="textarea"
                         style={{ height: '30px' }}
@@ -56,7 +70,7 @@ const AddCenter = () => {
                         <Form.Control
                         name="maDV"
                         value={value.maDV}
-                        onChange={handleValueChange}
+                        onChange={onChange}
                         className="input_form"
                         as="textarea"
                         // placeholder="Leave a comment here"
@@ -68,7 +82,7 @@ const AddCenter = () => {
                         <Form.Control
                         name="addressTT"
                         value={value.addressTT}
-                        onChange={handleValueChange}
+                        onChange={onChange}
                         className="input_form"
                         as="textarea"
                         // placeholder="Leave a comment here"
@@ -80,7 +94,7 @@ const AddCenter = () => {
                         <Form.Control
                         name="IP"
                         value={value.IP}
-                        onChange={handleValueChange}
+                        onChange={onChange}
                         className="input_form"
                         as="textarea"
                         // placeholder="Leave a comment here"
@@ -89,7 +103,8 @@ const AddCenter = () => {
                     </FloatingLabel>
                 </div>
                 <div className="add-form_action">
-                    <Button type="submit" size="sm">
+                    <Button type="submit" size="sm" 
+                    >
                         Thêm mới
                     </Button>
                     <Button className="alternate" size="sm"

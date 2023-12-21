@@ -11,6 +11,8 @@
     --activeItem: #f799a354;
   }
 
+  @import url('https://fonts.googleapis.com/css2?family=Lora:wght@600&family=Oswald:wght@300&family=Playfair+Display&family=Young+Serif&display=swap');
+
 .form {
     display: flex;
     align-items: center;

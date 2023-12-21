@@ -10,6 +10,8 @@
     --smboxShadow: -79px 51px 60px rgba(0, 0, 0, 0.08);
     --activeItem: #f799a354;
   }
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400&family=Young+Serif&display=swap');
+
 
   .App {
     /* padding: 0.5rem 3.5rem; */
@@ -19,5 +21,5 @@
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Oswald', sans-serif;
   }

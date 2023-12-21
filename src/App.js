@@ -11,7 +11,6 @@ import CenterList from './Center/CenterList/CenterList';
 
 
 function App  () {
-
   return (
     <div className="App">
           <Routes> 
