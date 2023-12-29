@@ -6,10 +6,13 @@ import "./AddCenter.css"
 
 const AddCenter = (props) => {
     const [value, setValue] = useState({
-        nameTT: "",
-        maDV: "",
-        addressTT:"",
-        IP: "",
+        MaCSDT: "",
+        MaSoGTVT: "",
+        TenCSDT:"",
+        CoQuanQuanLy: "",
+        DienThoai: "",
+        DiaChi:"",
+        LanhDao: ""
     })
 
     const [formVisible, setFormVisible] = useState(false)
@@ -31,14 +34,6 @@ const AddCenter = (props) => {
 
     }
 
-    // const handleValueChange = (event) => {
-    //     setValue({
-    //         ...value,
-    //         [event.target.name]: event.target.value
-    //     })
-            
-    // }
-
     if(!formVisible) {
         return (
             <button className="form_visible"
@@ -49,16 +44,48 @@ const AddCenter = (props) => {
             </button>
         )
     }
-
     return (
         <div className="add_form">
             <form onSubmit={handleSubmit}>
                 <div className="add-form_control">
                     <FloatingLabel controlId="floatingTextarea2" 
+                    label="Ma CSDL">
+                        <Form.Control
+                        name="MaCSDT"
+                        value={value.MaCSDT}
+                        onChange={onChange}
+                        className="input_form"
+                        as="textarea"
+                        style={{ height: '30px' }}
+                        />
+                    </FloatingLabel>
+                    <FloatingLabel controlId="floatingTextarea2" 
+                    label="Ma GTVT">
+                        <Form.Control
+                        name="MaSoGTVT"
+                        value={value.MaSoGTVT}
+                        onChange={onChange}
+                        className="input_form"
+                        as="textarea"
+                        style={{ height: '30px' }}
+                        />
+                    </FloatingLabel>
+                    <FloatingLabel controlId="floatingTextarea2" 
+                    label="Loai dich vu">
+                        <Form.Control
+                        name="LoaiDV"
+                        value={value.LoaiDV}
+                        onChange={onChange}
+                        className="input_form"
+                        as="textarea"
+                        style={{ height: '30px' }}
+                        />
+                    </FloatingLabel>
+                    <FloatingLabel controlId="floatingTextarea2" 
                     label="Tên trung tâm">
                         <Form.Control
-                        name="nameTT"
-                        value={value.nameTT}
+                        name="TenCSDT"
+                        value={value.TenCSDT}
                         onChange={onChange}
                         className="input_form"
                         as="textarea"
@@ -66,10 +93,10 @@ const AddCenter = (props) => {
                         />
                     </FloatingLabel>
                     <FloatingLabel controlId="floatingTextarea2" 
-                    label="Mã đơn vị">
+                    label="Co so quan ly">
                         <Form.Control
-                        name="maDV"
-                        value={value.maDV}
+                        name="CoQuanQuanLy"
+                        value={value.CoQuanQuanLy}
                         onChange={onChange}
                         className="input_form"
                         as="textarea"
@@ -78,10 +105,10 @@ const AddCenter = (props) => {
                         />
                     </FloatingLabel>
                     <FloatingLabel controlId="floatingTextarea2" 
-                    label="Đia chỉ trung tâm">
+                    label="Dien thoai">
                         <Form.Control
-                        name="addressTT"
-                        value={value.addressTT}
+                        name="DienThoai"
+                        value={value.DienThoai}
                         onChange={onChange}
                         className="input_form"
                         as="textarea"
@@ -90,10 +117,10 @@ const AddCenter = (props) => {
                         />
                     </FloatingLabel>
                     <FloatingLabel controlId="floatingTextarea2" 
-                    label="Địa chỉ IP">
+                    label="Địa chỉ">
                         <Form.Control
-                        name="IP"
-                        value={value.IP}
+                        name="DiaChi"
+                        value={value.DiaChi}
                         onChange={onChange}
                         className="input_form"
                         as="textarea"
@@ -101,6 +128,7 @@ const AddCenter = (props) => {
                         style={{ height: '30px' }}
                         />
                     </FloatingLabel>
+                    
                 </div>
                 <div className="add-form_action">
                     <Button type="submit" size="sm" 

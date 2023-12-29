@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400&family=Young+Serif&display=swap');
 
 
-.card_center{
+.card_center {
     position: relative;
     /* overflow: hidden; */
 }
@@ -13,4 +13,9 @@
     width: 100%;
     height: auto;
     transition: all .3s ease;
+}
+
+.option {
+    display: flex;
+    justify-content: space-evenly;
 }

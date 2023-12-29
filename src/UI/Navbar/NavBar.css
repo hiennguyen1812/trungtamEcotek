@@ -1,0 +1,30 @@
+.nav_form {
+    background: rgb(138, 154, 237);
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav_text {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 10rem;
+    margin-left: 25%;
+}
+
+.img_logo {
+    width: 12rem;
+    display: flex;
+}
+
+.nav_brand {
+    font-size: 45px;
+}
+
+.me-auto {
+    gap: 3rem;
+}
+
+.dang_xuat p {
+    text-decoration: none;
+    color: black;
+}

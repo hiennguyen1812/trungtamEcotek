@@ -7,6 +7,7 @@ import Login from './Login/Login';
 import Register from './Login/Register';
 import CenterCard from './Center/CenterCard';
 import CenterList from './Center/CenterList/CenterList';
+import Edit from './Center/CRUD/Edit';
 
 
 
@@ -17,6 +18,7 @@ function App  () {
             <Route path="/" element={<CenterList/>} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="update/:maDV" element={<Edit />} />
           </Routes>
     </div>
   );

@@ -16,10 +16,5 @@
   .App {
     /* padding: 0.5rem 3.5rem; */
     color: var(--black);
-    background: #fff;
-    height: 100vh;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
     font-family: 'Oswald', sans-serif;
   }
