@@ -1,3 +1,29 @@
-.ant-menu-root {
-    border-radius: 12px;
+.nav-link {
+    color: white;
+    font-size: 18px;
+}
+/* 
+.header_sidebar {
+    min-width: 100%;
+} */
+
+
+#parentM li a:hover {
+    background-color: blue;
+}
+
+.dropdown-item {
+    
+    border-radius: var(--bs-dropdown-item-border-radius,7px);
+    /* margin: 10px 0 20px -20px; */
+}
+
+.item1 {
+    margin: 10px 0 20px -20px;
+    text-align: center;
+}
+
+
+a.Link {
+    border-radius: inherit;
 }

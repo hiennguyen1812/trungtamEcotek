@@ -1,5 +1,7 @@
 import { useState } from "react";
 import "./Search.css";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 
 const Search = (props) => {
   const [searchValue, setSearchValue] = useState("");
@@ -11,16 +13,18 @@ const Search = (props) => {
   };
 
   return (
-    <div className="">
-      <form onSubmit={handleSubmit} className="form-search">
-        <input
-          value={searchValue}
-          onChange={(evt) => setSearchValue(evt.target.value)}
-          type="text"
-          placeholder="Search....."
+    <div className="search_center mt-3">
+      <Form onSubmit={handleSubmit} className="d-flex">
+        <Form.Control
+        value={searchValue}
+        onChange={(evt) => setSearchValue(evt.target.value)}
+          type="search"
+          placeholder="Search"
+          className="me-2"
+          aria-label="Search"
         />
-        <button>Search</button>
-      </form>
+        <Button variant="outline-success">Search</Button>
+      </Form>
     </div>
   );
 };

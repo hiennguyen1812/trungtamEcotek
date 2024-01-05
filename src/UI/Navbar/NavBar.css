@@ -8,7 +8,7 @@
     display: grid;
     grid-template-columns: auto auto auto;
     gap: 10rem;
-    margin-left: 25%;
+    margin-left: 15%;
 }
 
 .img_logo {
@@ -22,9 +22,22 @@
 
 .me-auto {
     gap: 3rem;
+    display: flex;
 }
 
 .dang_xuat p {
-    text-decoration: none;
     color: black;
+}
+
+.account_change p {
+    color: black;
+}
+
+a {
+    text-decoration: none;
+    /* color: white; */
+}
+
+a:hover {
+    color: aliceblue;
 }

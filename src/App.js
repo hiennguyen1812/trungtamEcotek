@@ -8,6 +8,7 @@ import Register from './Login/Register';
 import CenterCard from './Center/CenterCard';
 import CenterList from './Center/CenterList/CenterList';
 import Edit from './Center/CRUD/Edit';
+import AccountList from './Account/AccountList';
 
 
 
@@ -18,7 +19,8 @@ function App  () {
             <Route path="/" element={<CenterList/>} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="update/:maDV" element={<Edit />} />
+            {/* <Route path="update/:maDV" element={<Edit />} /> */}
+            <Route path="/account" element={<AccountList />} />
           </Routes>
     </div>
   );

@@ -4,8 +4,9 @@ import axios from "axios";
 import CenterCard from "../CenterCard";
 import NavBar from "../../UI/Navbar/Navbar";
 import "./CenterList.css";
-import Sidebar from "../../UI/Sidebar/Sidebar";
+import SideBar from "../../UI/Sidebar/Sidebar";
 import Search from "../../Search/Search";
+
 
 const CenterList = () => {
   const [users, setUsers] = useState([]);
@@ -14,7 +15,7 @@ const CenterList = () => {
   useEffect(() => {
     // Fetch data from the API endpoint using Axios
     axios
-      .get("http://localhost:3000/data")
+      .get("https://github.com/hiennguyen1812/json/blob/main/db.json")
       .then((response) => {
         setUsers(response.data);
         setLoading(false);
@@ -50,7 +51,7 @@ const CenterList = () => {
     <div>
       <NavBar />
       <div className="center">
-        <Sidebar />
+        <SideBar />
         <div className="container mt-5">
           <AddCenter onSubmit={handleAddUser} />
 
@@ -58,7 +59,8 @@ const CenterList = () => {
             {loading ? (
               <p>Loading...</p>
               ) : (
-                users.map((user) => <CenterCard key={user.MaCSDT} user={user} />)
+                users.map((user) => 
+                <CenterCard key={user.MaCSDT} user={user} />)
                 )}
           </div>
         </div>

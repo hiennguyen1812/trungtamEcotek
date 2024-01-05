@@ -1,0 +1,22 @@
+{
+    "dataAccount": [
+      {
+        "id": "1",
+        "AccountName": "ThanhTri-TT",
+        "MaDV": "29001",
+        "Password": "Thanhtri123"
+      },
+      {
+        "id": "2",
+        "AccountName": "ThanhXuan-TT",
+        "MaDV": "29005",
+        "Password": "Thanhxuan123"
+      },
+      {
+        "id": "3",
+        "AccountName": "BacTuLiem-TT",
+        "MaDV": "29003",
+        "Password": "Bactuliem123"
+      }
+    ]
+}

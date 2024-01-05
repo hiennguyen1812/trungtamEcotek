@@ -1,4 +1,4 @@
-import "./SearchItem.css";
+// import "./SearchItem.css";
 
 const SearchItem = (props) => {
   return (
