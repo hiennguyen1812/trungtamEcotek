@@ -3,6 +3,7 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import "./AddCenter.css"
+import DataCenter from "../CenterList/data"
 
 const AddCenter = (props) => {
     const [value, setValue] = useState({
@@ -14,8 +15,9 @@ const AddCenter = (props) => {
         DiaChi:"",
         LanhDao: ""
     })
-
+    
     const [formVisible, setFormVisible] = useState(false)
+    
 
     const onChange = (event) => {
         const newValue = event.target.value
@@ -44,6 +46,7 @@ const AddCenter = (props) => {
             </button>
         )
     }
+
     return (
         <div className="add_form">
             <form onSubmit={handleSubmit}>

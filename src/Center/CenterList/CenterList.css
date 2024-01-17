@@ -3,6 +3,11 @@
     grid-template-columns: auto auto auto auto;
 }
 
+.search_bar_center .col_label_center {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
 .container {
     display: flex;
     flex-direction: column;

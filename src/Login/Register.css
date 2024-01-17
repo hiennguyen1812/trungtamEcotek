@@ -38,7 +38,7 @@
     backdrop-filter: blur(15px);
     flex-direction: column;
 }
-h2 {
+.form-value h2 {
     font-size: 2em;
     color: #fff;
     text-align: center;

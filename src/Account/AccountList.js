@@ -1,135 +1,98 @@
 import NavBar from "../UI/Navbar/Navbar";
-import SideBar from "../UI/Sidebar/Sidebar";
 import Col from "react-bootstrap/Col";
+import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";
-import Row from "react-bootstrap/Row";
-import Button from "react-bootstrap/Button";
 import "./AccountList.css";
 import { useEffect, useState } from "react";
 import Table from "react-bootstrap/Table";
 import axios from "axios";
+import dataAccount from "./data";
+import AddAccount from "./CRUD/AddAccount";
+import Card from "../components/Card";
+import { VscAccount } from "react-icons/vsc";
+import SideBar from "../UI/Sidebar/Sidebar";
 
-const AccountList = (props) => {
-  const jsonUrlAcc = 'https://github.com/hiennguyen1812/json/blob/main/dataAcc.json';
-  const [columns, setColumns] = useState([]);
-  const [records, setRecords] = useState([]);
-  const [valueAcc, setValueAcc] = useState({
-    // id: 0,
-    AccountName: "",
-    MaDV: "",
-    Password:""
-  })
+const AccountList = () => {
+  const [loading, setLoading] = useState(true);
+  const [account, setAccount] = useState([]);
+  const [searchValueAcc, setSearchValueAcc] = useState("");
 
-  const onChangeAccount = (event) => {
-    const newValueAcc = event.target.value
-    const fieldAcc = event.target.name
-    setValueAcc((prev) => {
-      return {
-        ...prev,
-        [fieldAcc]: newValueAcc,
-      }
-    })
-  }
-  const handleSubmitAcc = (event) => {
-    event.preventDefault();
-    props.onSubmit(valueAcc)
-
-}
 
   useEffect(() => {
-    axios.get(jsonUrlAcc).then((res) => {
-      setColumns(Object.keys(res.data[0]));
-      setRecords(res.data);
-    });
+    // Fetch data from the API endpoint using Axios
+    axios
+      .get(dataAccount)
+      .then((response) => {
+        setAccount(response.dataTeacher);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        setLoading(false);
+      });
   }, []);
 
-  const handleAddAccount = (value) => {
-    setRecords((prev) => [
+  const handleAddAccount = (v) => {
+    setAccount((prev) => [
       ...prev,
       {
-        id: value.id,
-        AccountName: value.AccountName,
-        MaDV: value.MaDV,
-        Password: value.Password,
+        AccountName: v.AccountName,
+        MaDV: v.MaDV,
+        Password: v.Password,
       },
     ]);
   };
 
+  const filteredAccount = dataAccount.filter((acc) => {
+    return (
+      acc.MaDV.indexOf(searchValueAcc) > -1 ||
+      acc.AccountName.indexOf(searchValueAcc) > -1 
+    )
+  })
+
+  const onSearchAccChange = (event) => {
+    setSearchValueAcc(event.target.value)
+  }
+
+
   return (
-    <div onSubmit={handleAddAccount}>
+    <div>
       <NavBar />
-      <div className="account_form">
-        <SideBar />
-        <div className="acc_head">
-          <h2 className="mt-5 mb-5 account_text_header">Account List</h2>
-          <Form onSubmit={handleSubmitAcc}>
-            <Form.Group as={Row} className="mb-3">
-              <Form.Label column sm="2">
-                Tên tài khoản
-              </Form.Label>
-              <Col sm="10">
-                <Form.Control type="text" onChange={onChangeAccount} placeholder="Tên tài khoản" />
-              </Col>
-            </Form.Group>
-
-            <Form.Group as={Row} className="mb-3">
-              <Form.Label column sm="2">
-                Mã đơn vị
-              </Form.Label>
-              <Col sm="10">
-                <Form.Control type="text" onChange={onChangeAccount} placeholder="Mã đơn vị" />
-              </Col>
-            </Form.Group>
-
-            <Form.Group
-              as={Row}
-              className="mb-3"
-              controlId="formPlaintextPassword"
-            >
-              <Form.Label column sm="2">
-                Mật khẩu
-              </Form.Label>
-              <Col sm="10">
-                <Form.Control type="text" onChange={onChangeAccount} placeholder="Mật khẩu" />
-              </Col>
-            </Form.Group>
-          </Form>
-          <div className="btn_add">
-            <Button variant="outline-success" type="submit" 
-            >
-              Add Account
-            </Button>
-          </div>
-          <div className="container mt-5">
-            <Table striped bordered hover variant="light">
-              <thead>
-                <tr>
-                  {/* Sử dụng các cột từ biến `columns` */}
-                  {columns.map((column, index) => (
-                    <th key={index}>{column}</th>
-                  ))}
-                <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                {/* Sử dụng dữ liệu từ biến `records` */}
-                {records.map((record, rowIndex) => (
-                  <tr key={rowIndex}>
-                      <td>{record.id}</td>
-                      <td>{record.AccountName}</td>
-                      <td>{record.MaDV}</td>
-                      <td>{record.Password}</td>
-                      <td>
-                        <Button variant="outline-primary">Update</Button>{' '}
-                        <Button variant="outline-danger">Delete</Button>
-                      </td>
-                  </tr>
-                ))}
-              </tbody>
-            </Table>
+      <SideBar/>
+      <section id="account">
+        <div className="search_bar_account">
+          <Col className="container col_label_acc" md>
+            <FloatingLabel controlId="floatingInputGrid" 
+              label="Search...">
+              <Form.Control value={searchValueAcc}
+              onChange={onSearchAccChange} type="text" placeholder="name@example.com" />
+            </FloatingLabel>
+          </Col>
+        </div>
+        <div className="container acc_container">
+          <div className="account_head">
+            <h2>Account</h2>
+            <br />
+            <AddAccount onSubmit={handleAddAccount} />
+            <div className="account_cards">
+              {loading ? (
+                <p>Loading....</p>
+              ) : (
+                [...filteredAccount, ...account].map((acc) => (
+                  <Card key={acc.MaDV} acc={acc} className="account_card">
+                    <span className="account_card-icon">
+                      <VscAccount />
+                    </span>
+                    <h5>Mã đơn vị: {acc.MaDV}</h5>
+                    <h6>Tài khoản: {acc.AccountName}</h6>
+                    <h6>Mật khẩu: {acc.Password}</h6>
+                  </Card>
+                ))
+              )}
+            </div>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 };

@@ -1,0 +1,86 @@
+
+ #teacherList h2 {
+    color: black;
+} 
+
+#teacherList p {
+    display: flex;
+    align-items: center;
+} 
+
+.search_bar_teacher .col_label_teacher {
+    margin-top: -100px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.tc_list_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem 4rem;
+    align-items: flex-start;
+}
+
+.card.faq:hover {
+    cursor: pointer;
+    background: var(--color-white);
+}
+
+.faq > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    /* gap: 2rem; */
+}
+
+.faq h5 {
+    line-height: 1.4;
+}
+
+.faq_icon {
+    font-size: 1.2rem;
+    color: var(--color-black);
+    background-color: transparent;
+}
+
+.faq_answer {
+    margin-top: 1rem;
+    opacity: 0;
+    animation: animateTeacher 500ms ease-in forwards;
+}
+
+.option_teacher {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 1rem;
+    text-transform: capitalize;
+    
+}
+
+.option_teacher:hover .btn {
+    transform: translateY(0);
+}
+
+@keyframes animateTeacher {
+    to {
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width: 1204px) {
+    .tc_list_container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .tc_list_container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 600) {
+    .tc_list_container {
+        gap: 1rem;
+    }
+}

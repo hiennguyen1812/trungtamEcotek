@@ -5,19 +5,25 @@ import CenterCard from "../CenterCard";
 import NavBar from "../../UI/Navbar/Navbar";
 import "./CenterList.css";
 import SideBar from "../../UI/Sidebar/Sidebar";
-import Search from "../../Search/Search";
+import dataCenter from "./data";
+import toastr from "toastr";
+import Form from "react-bootstrap/Form";
+import Col from "react-bootstrap/Col";
+import FloatingLabel from "react-bootstrap/FloatingLabel";
+import Edit from "./Edit";
 
 
 const CenterList = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [searchValue, setSearchValue] = useState("");
 
   useEffect(() => {
     // Fetch data from the API endpoint using Axios
     axios
-      .get("https://github.com/hiennguyen1812/json/blob/main/db.json")
+      .get(dataCenter)
       .then((response) => {
-        setUsers(response.data);
+        setUsers(response.dataCenter);
         setLoading(false);
       })
       .catch((error) => {
@@ -41,33 +47,53 @@ const CenterList = () => {
       },
     ]);
   };
-  const handleSearch = async () => {
-    const res = await fetch("http://localhost:3000/data")
-    const resJson = await res.json();
-    console.log(resJson);
+
+  const filteredUsers = dataCenter.filter((user) => {
+    return (
+      user.MaCSDT.indexOf(searchValue) > -1 ||
+      user.TenCSDT.indexOf(searchValue) > -1
+    )
+  })
+
+  const onSearchChange = (event) => {
+    setSearchValue(event.target.value)
   }
+
 
   return (
     <div>
       <NavBar />
-      <div className="center">
-        <SideBar />
+      <SideBar />
+      <div className="search_bar_center">
+          <Col className="container col_label_center" md>
+            <FloatingLabel controlId="floatingInputGrid" 
+              label="Search...">
+              <Form.Control value={searchValue}
+              onChange={onSearchChange} type="text" 
+              placeholder="name@example.com" />
+            </FloatingLabel>
+          </Col>
+        </div>
+      {/* <div className="center"> */}
+        {/* <SideBar /> */}
         <div className="container mt-5">
-          <AddCenter onSubmit={handleAddUser} />
+          <AddCenter
+            onSubmit={handleAddUser}
+            //  onClick={handleDeleteTask}
+          />
 
           <div className="center_list_card">
             {loading ? (
               <p>Loading...</p>
-              ) : (
-                users.map((user) => 
-                <CenterCard key={user.MaCSDT} user={user} />)
-                )}
+            ) : (
+              [...filteredUsers,...users].map((user) => (
+                <CenterCard key={user.MaCSDT} user={user} />
+              ))
+            )}
           </div>
         </div>
-        <div className="search_footer">
-                <Search onSearch={handleSearch} />
-        </div>
-      </div>
+        
+      {/* </div> */}
     </div>
   );
 };

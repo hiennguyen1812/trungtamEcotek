@@ -1,0 +1,25 @@
+
+.add_form_acc {
+    padding: 1rem;
+    margin: 1rem auto;
+    width: 50rem;
+    height: 70%;
+    text-align: center;
+    border-radius: 15px;
+}
+
+.add_form_acc form 
+    {display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.card.add_form_acc {
+    cursor: pointer;
+    background: var(--color-white);
+}
+
+.add_form_action button {
+    margin-right: 1rem;
+    margin-top: 10px;
+}

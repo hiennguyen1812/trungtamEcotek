@@ -5,17 +5,18 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import "./NavBar.css";
 import { Link } from "react-router-dom";
-import Search from "../../Search/Search";
 
 const NavBar = () => {
   return (
     <div className="nav_form">
       <Navbar expand="md">
+        <Link to="/">
         <Image
           src="https://static.topcv.vn/company_covers/ZZUWWHxWjOrf5ISd9jS5.jpg"
           thumbnail
           className="img_logo"
-        />
+          />
+          </Link>
 
         <div className="nav_text">
           <Navbar.Brand className="nav_brand">
