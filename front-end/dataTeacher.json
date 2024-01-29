@@ -1,0 +1,74 @@
+{ "dataTeacher" : [
+    {
+        "MaCSDT": "01005",
+        "teacherName": "Nguyen Van 1",
+        "teacherBirth": "18/12/2000",
+        "CCCD": "0123456789123",
+        "maGV": "1121100",
+        "AccountName":"ThanhTri-TT",
+        "MaDV": "29001",
+        "Password": "Thanhtri123"
+    },
+    {
+        "MaCSDT": "01006",
+        "teacherName": "Nguyen Van 2",
+       " teacherBirth": "test",
+       "CCCD": "test",
+        "maGV": "75152752",
+        "AccountName":"test",
+        "MaDV": "30001",
+        "Password": "test"
+    },
+    {
+        "MaCSDT": "01007",
+        "teacherName": "Nguyen Van 3",
+       " teacherBirth": "test",
+       " CCCD": "test",
+       " maGV": "174171",
+       " AccountName":"test",
+       " MaDV": "24001",
+       " Password": "test"
+    },
+    {
+        "MaCSDT": "01008",
+        "teacherName": "Nguyen Van 4",
+        "teacherBirth": "test",
+        "CCCD": "test",
+        "maGV": "45278",
+        "AccountName":"test",
+        "MaDV": "22001",
+        "Password": "test"
+    },
+    {
+        "MaCSDT": "01009",
+        "teacherName": "Nguyen Van 5",
+        "teacherBirth": "test",
+        "CCCD": "test",
+        "maGV": "27752278",
+        "AccountName":"test",
+        "MaDV": "29057",
+        "Password": "test"
+    },
+    {
+       " MaCSDT": "01010",
+        "teacherName": "Nguyen Van 6",
+       " teacherBirth": "test",
+       " CCCD": "test",
+       " maGV": "72282",
+       " AccountName":"test",
+       " MaDV": "29003",
+       " Password": "test"
+    },
+    {
+        "MaCSDT": "01026",
+        "teacherName": "Nguyen Van 26",
+        "teacherBirth": "test",
+        "CCCD": "test",
+        "maGV": "14243",
+        "AccountName":"test",
+        "MaDV": "15004",
+       " Password": "test"
+    }
+]
+
+}
