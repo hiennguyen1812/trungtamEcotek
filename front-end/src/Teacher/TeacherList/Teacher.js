@@ -40,14 +40,6 @@ const Teacher = (props) => {
           <p className="faq_answer">Mật khẩu: {props.teacher.Password}</p>
           <br />
           <div className="option_teacher">
-          <Link to={`/payment/${props.teacher.maGV}`}>
-              <Button
-                variant="outline-success"
-                // onClick={handleUpdate}
-              >
-                Payment
-              </Button>
-            </Link>
             <Link to={`/edit/${props.teacher.MaDV}`}>
               <Button
                 variant="outline-primary"

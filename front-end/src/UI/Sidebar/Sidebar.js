@@ -16,7 +16,7 @@ const SideBar = () => {
     { name: "Home", route: "/home" },
     { name: "Giáo viên", route: `/teacher/${paramsSidebar.MaCSDT}` },
     { name: "Tài khoản", route: `/account/${paramsSidebar.MaCSDT}` },
-    // { name: "Thanh toán", route: `/payment/${paramsSidebar.MaCSDT}` },
+    { name: "Thanh toán", route: `/payment/${paramsSidebar.MaCSDT}` },
   ];
 
   // Find the selected category based on the route parameters

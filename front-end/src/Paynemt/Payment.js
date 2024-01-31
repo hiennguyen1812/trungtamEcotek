@@ -12,24 +12,23 @@ const Payment = (props) => {
 
   // Use the find function to get the teacher with matching maGV
   const selectedTeacher = dataTeacher.find((teacher) => 
-  teacher.maGV === params.maGV);
+  teacher.MaCSDT === params.MaCSDT);
 
   return (
     <div>
       <NavBar />
-      <SideBar 
-       teacher={selectedTeacher} 
-      />
+      <SideBar />
       <br />
       <br />
       <br />
       <div className="payment_container">
-        <h2>Tình trạng thanh toán của {params.maGV}</h2>
+        <h2>Tình trạng thanh toán của {params.MaCSDT}</h2>
       </div>
       {selectedTeacher ? (
-        <PaymentCard key={selectedTeacher.maGV} payment={selectedTeacher} />
+        <PaymentCard key={selectedTeacher.MaCSDT} payment={selectedTeacher} />
       ) : (
-        <NotFound />
+        <>
+        </> 
       )}
     </div>
   );

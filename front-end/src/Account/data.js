@@ -24,7 +24,7 @@ const dataAccount =  [
         Password: "Thanhtri"
       },
       {
-        MaCSDT: "01026",
+        MaCSDT: "01025",
         AccountName: "TrungTam-TT",
         MaDV: "29025",
         Password: "Thanhxuan"
